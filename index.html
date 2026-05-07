@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K8s Infrastructure Dashboard | Klimov D.G.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --success: #22c55e;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .dashboard {
+            width: 90%;
+            max-width: 800px;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--success);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--success);
+        }
+
+        .pulse {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse-animation 2s infinite;
+        }
+
+        @keyframes pulse-animation {
+            0% { box-shadow: 0 0 0 0px rgba(34, 197, 94, 0.7); }
+            100% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 20px;
+            border-radius: 16px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .card i {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            display: block;
+        }
+
+        .card-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .student-name {
+            color: var(--text-main);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard">
+    <div class="status-badge">
+        <div class="pulse"></div> SYSTEM ONLINE
+    </div>
+
+    <h1>PRODUCTION READY</h1>
+    <div class="subtitle">Kubernetes Cluster Infrastructure Project</div>
+
+    <div class="grid">
+        <div class="card">
+            <i class="fas fa-cloud"></i>
+            <span class="card-title">Cloud Provider</span>
+            <span class="card-value">Yandex Cloud</span>
+        </div>
+        <div class="card">
+            <i class="fas fa-cubes"></i>
+            <span class="card-title">Orchestration</span>
+            <span class="card-value">Self-Hosted K8s (Kubespray)</span>
+        </div>
+        <div class="card">
+            <i class="fas fa-code-branch"></i>
+            <span class="card-title">CI/CD Pipeline</span>
+            <span class="card-value">GitHub Actions / Docker</span>
+        </div>
+        <div class="card">
+            <i class="fas fa-chart-line"></i>
+            <span class="card-title">Observability</span>
+            <span class="card-value">Prometheus / Loki / Grafana</span>
+        </div>
+    </div>
+
+    <div class="footer">
+        Developed for Diploma by <span class="student-name">Klimov D.G.</span><br>
+        <small>© 2026 DevOps Engineering Division</small>
+    </div>
+</div>
+
+</body>
+</html>
